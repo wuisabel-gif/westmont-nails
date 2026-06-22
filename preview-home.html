@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap (kept for layout utilities + your existing markup) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <!-- Type: Cormorant Garamond (display) + Jost (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <title>Westmont Nails — Westmont Village</title>
+
+    <style>
+      :root{
+        --ink:#2a151f;        /* deep aubergine, near-black text */
+        --wine:#6e2b43;       /* deep wine — headings, primary */
+        --rose:#c98aa0;       /* dusty rose */
+        --rose-soft:#e7bcc8;  /* lighter rose */
+        --blush:#f6e7eb;      /* blush panel */
+        --cream:#fbf5f1;      /* warm ivory page bg */
+        --gold:#bc9a6a;       /* champagne gold accent */
+        --line:rgba(42,21,31,.14);
+        --shadow:0 24px 60px -28px rgba(110,43,67,.45);
+      }
+
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{
+        margin:0;
+        background:var(--cream);
+        color:var(--ink);
+        font-family:'Jost',system-ui,sans-serif;
+        font-weight:300;
+        font-size:1.05rem;
+        line-height:1.75;
+        -webkit-font-smoothing:antialiased;
+      }
+      main{display:block}
+      a{color:inherit;text-decoration:none}
+      img{max-width:100%;display:block}
+
+      .wrap{max-width:1180px;margin:0 auto;padding:0 1.5rem}
+
+      /* ---- type ---- */
+      h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--wine);margin:0;line-height:1.06}
+      h1{font-size:clamp(2.9rem,6.4vw,5.4rem);letter-spacing:-.5px}
+      h2{font-size:clamp(2rem,4vw,3.1rem)}
+      h3{font-size:1.7rem}
+      .serif-it{font-style:italic;color:var(--gold)}
+      p{margin:0 0 1rem}
+      .lead{font-size:1.18rem;color:rgba(42,21,31,.78);max-width:46ch}
+
+      .eyebrow{
+        font-family:'Jost',sans-serif;font-weight:500;
+        text-transform:uppercase;letter-spacing:.42em;
+        font-size:.72rem;color:var(--gold);margin:0 0 1rem;
+        display:inline-flex;align-items:center;gap:.7rem;
+      }
+      .eyebrow::before{content:"";width:30px;height:1px;background:var(--gold);display:inline-block}
+
+      /* ---- lacquer swatch (signature motif) ---- */
+      .swatch{
+        width:18px;height:18px;border-radius:50%;
+        background:var(--rose);position:relative;flex:0 0 auto;
+        box-shadow:inset 0 -3px 6px rgba(0,0,0,.18);
+      }
+      .swatch::after{
+        content:"";position:absolute;top:3px;left:4px;
+        width:6px;height:5px;border-radius:50%;
+        background:rgba(255,255,255,.75);filter:blur(.4px);
+      }
+
+      /* ---- buttons ---- */
+      .btn-lux,.btn-ghost{
+        display:inline-flex;align-items:center;gap:.6rem;
+        font-family:'Jost',sans-serif;font-weight:400;
+        letter-spacing:.16em;text-transform:uppercase;font-size:.78rem;
+        padding:.95rem 2.1rem;border-radius:999px;cursor:pointer;
+        transition:transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+        border:1px solid transparent;
+      }
+      .btn-lux{background:var(--wine);color:var(--cream);box-shadow:0 14px 30px -16px rgba(110,43,67,.7)}
+      .btn-lux:hover{transform:translateY(-2px);background:var(--ink);box-shadow:0 20px 38px -16px rgba(110,43,67,.8)}
+      .btn-ghost{background:transparent;color:var(--wine);border-color:var(--line)}
+      .btn-ghost:hover{transform:translateY(-2px);border-color:var(--gold);color:var(--gold)}
+
+      /* ---- navbar ---- */
+      .site-nav{position:sticky;top:0;z-index:50;background:rgba(251,245,241,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+      .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.1rem 1.5rem;max-width:1180px;margin:0 auto}
+      .brand{display:flex;align-items:center;gap:.7rem;font-family:'Cormorant Garamond',serif;font-size:1.65rem;font-weight:600;color:var(--wine);letter-spacing:.5px}
+      .brand .swatch{width:14px;height:14px}
+      .nav-links{display:flex;align-items:center;gap:2.1rem;list-style:none;margin:0;padding:0}
+      .nav-links a{font-family:'Jost',sans-serif;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);position:relative;padding:.2rem 0}
+      .nav-links a::after{content:"";position:absolute;left:0;bottom:-3px;height:1px;width:0;background:var(--gold);transition:width .3s ease}
+      .nav-links a:hover::after,.nav-links a.current::after{width:100%}
+      .nav-links a.current{color:var(--wine)}
+      .nav-cta{margin-left:.4rem}
+
+      .nav-toggle{display:none}
+      .nav-burger{display:none;cursor:pointer;flex-direction:column;gap:5px;padding:.4rem}
+      .nav-burger span{width:24px;height:1.6px;background:var(--wine);transition:.3s}
+
+      @media (max-width:860px){
+        .nav-burger{display:flex}
+        .nav-links{
+          position:absolute;top:100%;left:0;right:0;
+          flex-direction:column;gap:1.4rem;align-items:flex-start;
+          background:var(--cream);border-bottom:1px solid var(--line);
+          padding:1.6rem 1.5rem;transform:translateY(-12px);
+          opacity:0;pointer-events:none;transition:.3s ease;
+        }
+        .nav-toggle:checked ~ .nav-links{opacity:1;transform:none;pointer-events:auto}
+        .nav-cta{margin-left:0}
+      }
+
+      /* ---- hero ---- */
+      .hero{position:relative;overflow:hidden}
+      .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding:5.5rem 0 5rem;position:relative;z-index:1}
+      .hero-canvas{position:absolute;inset:0;z-index:0;opacity:.62;pointer-events:none;
+        -webkit-mask-image:linear-gradient(100deg,transparent 0%,rgba(0,0,0,.10) 22%,#000 54%);
+                mask-image:linear-gradient(100deg,transparent 0%,rgba(0,0,0,.10) 22%,#000 54%)}
+      .hero-copy{max-width:34ch;animation:rise .9s ease both}
+      .hero-copy .lead{margin:1.6rem 0 2.2rem}
+      .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+
+      .hero-art{position:relative;height:430px;display:flex;align-items:center;justify-content:center;animation:rise 1s .15s ease both}
+      .glow{position:absolute;width:430px;height:430px;border-radius:50%;
+        background:radial-gradient(circle at 38% 34%, var(--rose-soft), var(--blush) 55%, transparent 72%);
+        filter:blur(6px);z-index:0}
+      .bottle{position:relative;z-index:2;width:148px;animation:bob 5.5s ease-in-out infinite}
+      .hero-photo{position:relative;z-index:2;width:100%;max-width:420px;height:430px;object-fit:cover;border-radius:26px;box-shadow:var(--shadow)}
+      .hero-bottle{position:relative;z-index:2;width:clamp(170px,20vw,224px);height:auto;filter:drop-shadow(0 26px 40px rgba(110,43,67,.34));animation:bob 6s ease-in-out infinite}
+      .bottle .cap{height:64px;width:62px;margin:0 auto;border-radius:14px 14px 6px 6px;
+        background:linear-gradient(120deg,#d8b87f,var(--gold) 45%,#9c7c4d);
+        box-shadow:inset 0 -6px 10px rgba(0,0,0,.18), inset 6px 4px 8px rgba(255,255,255,.4)}
+      .bottle .neck{height:12px;width:40px;margin:0 auto;background:linear-gradient(#caa6b3,#b98fa1)}
+      .bottle .body{height:150px;width:128px;margin:0 auto;border-radius:20px 20px 26px 26px;position:relative;overflow:hidden;
+        background:linear-gradient(135deg,var(--rose) 0%,var(--wine) 78%);
+        box-shadow:var(--shadow), inset -10px -12px 22px rgba(0,0,0,.22)}
+      .bottle .body::before{content:"";position:absolute;top:12px;left:16px;width:26px;height:96px;border-radius:40px;
+        background:linear-gradient(rgba(255,255,255,.6),rgba(255,255,255,0));filter:blur(1px)}
+      .bottle .label{position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);text-align:center;color:var(--cream)}
+      .bottle .label small{font-family:'Jost',sans-serif;font-size:.5rem;letter-spacing:.32em;text-transform:uppercase;opacity:.85}
+      .bottle .label b{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;display:block;letter-spacing:1px}
+
+      .float-swatch{position:absolute;border-radius:50%;z-index:1;box-shadow:inset 0 -4px 8px rgba(0,0,0,.2)}
+      .float-swatch::after{content:"";position:absolute;top:18%;left:22%;width:24%;height:18%;border-radius:50%;background:rgba(255,255,255,.7)}
+      .fs1{width:52px;height:52px;background:var(--gold);top:34px;left:24px;animation:bob 6s ease-in-out infinite}
+      .fs2{width:38px;height:38px;background:var(--rose);bottom:46px;left:8px;animation:bob 5s .4s ease-in-out infinite}
+      .fs3{width:46px;height:46px;background:var(--wine);top:30px;right:30px;animation:bob 6.5s .2s ease-in-out infinite}
+      .fs4{width:30px;height:30px;background:var(--rose-soft);bottom:60px;right:40px;animation:bob 4.6s .6s ease-in-out infinite}
+
+      /* ---- generic section ---- */
+      .section{padding:5rem 0}
+      .section-head{text-align:center;max-width:50ch;margin:0 auto 3rem}
+      .section-head .lead{margin-inline:auto}
+
+      /* ---- page band (about / contact heroes) ---- */
+      .band{background:var(--blush);text-align:center;padding:5.5rem 1.5rem;position:relative;overflow:hidden}
+      .band h1{margin-bottom:1rem}
+      .band .lead{margin:0 auto}
+      .band-dots{display:flex;gap:.6rem;justify-content:center;margin-top:1.8rem}
+
+      /* ---- services grid (products.php) ---- */
+      .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+      .svc-card{
+        background:#fff;border:1px solid var(--line);border-radius:22px;padding:2.2rem 1.9rem;
+        position:relative;overflow:hidden;transition:transform .3s ease, box-shadow .3s ease;
+      }
+      .svc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+      .svc-card .dot{width:42px;height:42px;border-radius:50%;margin-bottom:1.3rem;position:relative;box-shadow:inset 0 -5px 9px rgba(0,0,0,.18)}
+      .svc-card .dot::after{content:"";position:absolute;top:8px;left:10px;width:12px;height:9px;border-radius:50%;background:rgba(255,255,255,.7)}
+      .svc-card h3{margin-bottom:.5rem}
+      .svc-card p{font-size:.98rem;color:rgba(42,21,31,.72);margin-bottom:1.2rem}
+      .svc-card .price{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.35rem;color:var(--gold)}
+
+      /* ---- story / quote (about) ---- */
+      .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+      .pull{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.7rem,3vw,2.4rem);line-height:1.4;color:var(--wine);border-left:2px solid var(--gold);padding-left:1.6rem}
+      .stat-row{display:flex;gap:2.5rem;margin-top:2rem;flex-wrap:wrap}
+      .stat b{font-family:'Cormorant Garamond',serif;font-size:2.6rem;color:var(--wine);display:block;line-height:1}
+      .stat span{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+
+      /* ---- contact ---- */
+      .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+      .field{margin-bottom:1.3rem}
+      .field label{display:block;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--wine);margin-bottom:.5rem}
+      .field input,.field select,.field textarea{
+        width:100%;padding:.85rem 1rem;border:1px solid var(--line);border-radius:12px;
+        background:#fff;font-family:'Jost',sans-serif;font-size:1rem;color:var(--ink);transition:border .25s ease;
+      }
+      .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+      .info-card{background:var(--blush);border-radius:22px;padding:2.4rem}
+      .info-card h3{margin-bottom:1.3rem}
+      .info-row{display:flex;gap:.9rem;padding:.7rem 0;border-bottom:1px dashed var(--line);align-items:baseline}
+      .info-row:last-child{border-bottom:0}
+      .info-row span{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);min-width:78px}
+
+      /* ---- gallery ---- */
+      .gallery-grid{columns:3;column-gap:1.4rem}
+      .tile{
+        break-inside:avoid;margin:0 0 1.4rem;border-radius:18px;overflow:hidden;
+        background:#fff;border:1px solid var(--line);
+        box-shadow:0 14px 34px -26px rgba(110,43,67,.5);
+        transition:transform .3s ease, box-shadow .3s ease;
+      }
+      .tile:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+      .tile .ph{position:relative;background:linear-gradient(135deg,var(--c1,#c98aa0),var(--c2,#6e2b43))}
+      .tile .ph::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 28% 22%,rgba(255,255,255,.35),transparent 46%)}
+      .tile .ph .ph-tag{position:absolute;left:14px;bottom:12px;z-index:2;font-family:'Jost',sans-serif;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+      .tile img{width:100%;display:block}
+      .tile figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.95rem 1.1rem}
+      .tile figcaption b{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.28rem;color:var(--wine)}
+      .tile figcaption span{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+      @media (max-width:860px){.gallery-grid{columns:2}}
+      @media (max-width:560px){.gallery-grid{columns:1}}
+
+      /* ---- footer ---- */
+      .site-foot{background:var(--ink);color:var(--cream);padding:4rem 0 2rem;margin-top:4rem}
+      .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem}
+      .foot-brand{font-family:'Cormorant Garamond',serif;font-size:1.9rem;color:#fff;display:flex;align-items:center;gap:.6rem}
+      .site-foot p{color:rgba(251,245,241,.6);font-size:.95rem}
+      .foot-col h4{font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0 0 1rem}
+      .foot-col a{display:block;color:rgba(251,245,241,.78);font-size:.95rem;padding:.25rem 0;transition:color .25s ease}
+      .foot-col a:hover{color:#fff}
+      .foot-base{border-top:1px solid rgba(251,245,241,.14);margin-top:2.5rem;padding-top:1.5rem;text-align:center;font-size:.82rem;color:rgba(251,245,241,.5);letter-spacing:.05em}
+
+      /* ---- animations ---- */
+      @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+      @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+      @media (max-width:860px){
+        .hero-inner,.story-grid,.contact-grid{grid-template-columns:1fr}
+        .hero-art{height:340px;order:-1}
+        .hero-photo{height:340px}
+        .svc-grid{grid-template-columns:1fr 1fr}
+        .foot-grid{grid-template-columns:1fr 1fr}
+      }
+      @media (max-width:560px){
+        .svc-grid,.foot-grid{grid-template-columns:1fr}
+      }
+      @media (prefers-reduced-motion:reduce){
+        *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+      }
+    </style>
+  </head>
+  <body>
+<header class="site-nav">
+    <nav class="nav-inner" aria-label="Primary">
+        <a class="brand" href="index.php">
+            <span class="swatch"></span>
+            Westmont Nails
+        </a>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-burger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </label>
+
+        <ul class="nav-links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="index.php#services">Services</a></li>
+            <li><a href="gallery.php">Gallery</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <li class="nav-cta"><a class="btn-lux" href="contact.php">Book now</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+<section class="hero">
+        <div id="hero-canvas" class="hero-canvas" aria-hidden="true"></div>
+        <div class="wrap hero-inner">
+            <div class="hero-copy">
+                <p class="eyebrow">Westmont Village · est. 2021</p>
+                <h1>Colour, <span class="serif-it">considered.</span></h1>
+                <p class="lead">A quiet little studio for beautiful hands and a flawless face. Sit back, choose a shade, and let us do the rest.</p>
+                <div class="hero-actions">
+                    <a class="btn-lux" href="contact.php">Book a chair</a>
+                    <a class="btn-ghost" href="index.php#services">View the menu</a>
+                </div>
+            </div>
+
+            <div class="hero-art" aria-hidden="true">
+                <div class="glow"></div>
+                <div class="float-swatch fs1"></div>
+                <div class="float-swatch fs2"></div>
+                <div class="float-swatch fs3"></div>
+                <div class="float-swatch fs4"></div>
+                <svg class="hero-bottle" viewBox="0 0 240 372" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Westmont Nails polish bottle">
+                    <defs>
+                        <linearGradient id="capG" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#e7c98e"/>
+                            <stop offset=".5" stop-color="#bc9a6a"/>
+                            <stop offset="1" stop-color="#8c6c41"/>
+                        </linearGradient>
+                        <linearGradient id="bodyG" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#d59dae"/>
+                            <stop offset=".55" stop-color="#a85f78"/>
+                            <stop offset="1" stop-color="#5e2438"/>
+                        </linearGradient>
+                        <radialGradient id="sheenG" cx=".34" cy=".26" r=".75">
+                            <stop offset="0" stop-color="#ffffff" stop-opacity=".5"/>
+                            <stop offset=".55" stop-color="#ffffff" stop-opacity="0"/>
+                        </radialGradient>
+                        <filter id="softShadow"><feGaussianBlur stdDeviation="3"/></filter>
+                    </defs>
+
+                    <ellipse cx="120" cy="361" rx="64" ry="9" fill="#2a151f" opacity=".16" filter="url(#softShadow)"/>
+
+                    <!-- neck (behind body) -->
+                    <rect x="103" y="80" width="34" height="36" rx="4" fill="#9c6f82"/>
+
+                    <!-- bottle body -->
+                    <path d="M64,162 C64,124 86,108 104,108 L136,108 C154,108 176,124 176,162 L176,328 Q176,350 154,350 L86,350 Q64,350 64,328 Z" fill="url(#bodyG)"/>
+                    <path d="M64,162 C64,124 86,108 104,108 L136,108 C154,108 176,124 176,162 L176,328 Q176,350 154,350 L86,350 Q64,350 64,328 Z" fill="url(#sheenG)"/>
+
+                    <!-- gloss highlight + label -->
+                    <rect x="78" y="150" width="15" height="150" rx="7.5" fill="#ffffff" opacity=".22"/>
+                    <rect x="80" y="214" width="80" height="74" rx="12" fill="#fbf5f1" opacity=".12"/>
+                    <text x="120" y="240" text-anchor="middle" fill="#ecd4a4" style="font-family:Jost,sans-serif;font-size:9px;letter-spacing:2.5px">WESTMONT</text>
+                    <text x="120" y="268" text-anchor="middle" fill="#fbf5f1" style="font-family:'Cormorant Garamond',serif;font-size:25px;font-weight:600">Nails</text>
+
+                    <!-- cap -->
+                    <rect x="94" y="14" width="52" height="74" rx="13" fill="url(#capG)"/>
+                    <rect x="101" y="23" width="12" height="55" rx="6" fill="#ffffff" opacity=".38"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Liquid Lacquer: seeded generative polish-swirl behind the hero -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+<section class="section" id="services">
+    <div class="wrap">
+        <div class="section-head">
+            <p class="eyebrow">The menu</p>
+            <h2>Services, finished by hand</h2>
+            <p class="lead">Nails, of course &mdash; and makeup too. Every treatment ends with the same unhurried care and a few quiet minutes that are entirely yours.</p>
+        </div>
+
+        <div class="svc-grid">
+            <article class="svc-card">
+                <span class="dot" style="background:#c98aa0"></span>
+                <h3>Signature Manicure</h3>
+                <p>A warm soak, precise shaping, cuticle care, and a polish of your choosing.</p>
+                <span class="price">from $38</span>
+            </article>
+
+            <article class="svc-card">
+                <span class="dot" style="background:#6e2b43"></span>
+                <h3>Luxe Gel</h3>
+                <p>Chip-resistant colour cured to a mirror shine. Two weeks of flawless wear.</p>
+                <span class="price">from $55</span>
+            </article>
+
+            <article class="svc-card">
+                <span class="dot" style="background:#bc9a6a"></span>
+                <h3>Spa Pedicure</h3>
+                <p>A rose-salt soak, exfoliation, and an unhurried lower-leg massage.</p>
+                <span class="price">from $62</span>
+            </article>
+
+            <article class="svc-card">
+                <span class="dot" style="background:#e7bcc8"></span>
+                <h3>Sculpted Extensions</h3>
+                <p>Featherlight builder-gel length, shaped to suit your hands, never bulky.</p>
+                <span class="price">from $78</span>
+            </article>
+
+            <article class="svc-card">
+                <span class="dot" style="background:#9c6f82"></span>
+                <h3>Nail Art &amp; Design</h3>
+                <p>Hand-painted detail, chrome, or a single gilded accent — your story, your nails.</p>
+                <span class="price">from $20</span>
+            </article>
+
+            <article class="svc-card">
+                <span class="dot" style="background:#d8b87f"></span>
+                <h3>Bridal &amp; Events</h3>
+                <p>A calm pre-occasion ritual for you and your party, booked together.</p>
+                <span class="price">on request</span>
+            </article>
+
+            <article class="svc-card">
+                <span class="dot" style="background:#b56b82"></span>
+                <h3>Makeup Application</h3>
+                <p>A polished everyday face or a fuller look for an evening out, built to last.</p>
+                <span class="price">from $65</span>
+            </article>
+
+            <article class="svc-card">
+                <span class="dot" style="background:#8c5a6e"></span>
+                <h3>Bridal Makeup</h3>
+                <p>A soft, long-wearing look for your day &mdash; with a trial beforehand so it&rsquo;s exactly right.</p>
+                <span class="price">from $120</span>
+            </article>
+
+            <article class="svc-card">
+                <span class="dot" style="background:#cda46a"></span>
+                <h3>Lash &amp; Brow</h3>
+                <p>Lash tint, brow shaping, and a clean finish to frame the eyes.</p>
+                <span class="price">from $28</span>
+            </article>
+        </div>
+    </div>
+</section>
+
+</main>
+    <footer class="site-foot">
+        <div class="wrap">
+            <div class="foot-grid">
+                <div>
+                    <div class="foot-brand"><span class="swatch"></span> Westmont Nails</div>
+                    <p>A small nail &amp; makeup studio on the west side. Unhurried care, beautiful colour, and a chair that always feels like a soft place to land.</p>
+                </div>
+                <div class="foot-col">
+                    <h4>Visit</h4>
+                    <a href="contact.php">214 Rosewood Lane</a>
+                    <a href="contact.php">Westmont Village</a>
+                    <a href="tel:+13105550199">(310) 555-0199</a>
+                </div>
+                <div class="foot-col">
+                    <h4>Explore</h4>
+                    <a href="index.php#services">Services</a>
+                    <a href="gallery.php">Gallery</a>
+                    <a href="about.php">Our story</a>
+                    <a href="contact.php">Book a chair</a>
+                </div>
+            </div>
+            <div class="foot-base">
+                &copy; 2026 Westmont Nails. A fictional studio, made by wuisabel-gif.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -101,8 +101,8 @@
 
             </div>
 
-            <!-- ============ LASHES, BROWS & FACIALS ============ -->
-            <div class="gallery-cat"><h2>Lashes, Brows &amp; Facials</h2><span class="rule"></span></div>
+            <!-- ============ LASHES & BROWS ============ -->
+            <div class="gallery-cat"><h2>Lashes &amp; Brows</h2><span class="rule"></span></div>
             <div class="gallery-grid">
 
                 <figure class="tile">
@@ -112,6 +112,12 @@
                 <figure class="tile">
                     <img src="images/tinted-brows.jpg" alt="Groomed, tinted eyebrows with soft glowing makeup">
                 </figure>
+
+            </div>
+
+            <!-- ============ FACIALS ============ -->
+            <div class="gallery-cat"><h2>Facials</h2><span class="rule"></span></div>
+            <div class="gallery-grid">
 
                 <figure class="tile">
                     <img src="images/custom-facial.jpg" alt="Custom facial before and after">

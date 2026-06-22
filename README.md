@@ -36,7 +36,9 @@ This is an example of a full small-business site upgrade: clean design, clear se
 
 ## Run it locally
 
-No build step — just PHP's built-in server:
+**Easiest way (Mac):** double-click **`launch.command`** in Finder — it starts the site and opens it in your browser automatically. Close the Terminal window to stop it.
+
+**Or from the command line** (no build step — just PHP's built-in server):
 
 ```bash
 php -S localhost:8000

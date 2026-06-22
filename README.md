@@ -2,7 +2,7 @@
 
 A boutique website concept for a small nail & makeup studio — built as a **showcase of the kind of work I can deliver for clients looking to upgrade their website**.
 
-> *Westmont Nails is a fictional studio. The site is a portfolio/demo piece — feel free to use it as a reference for what a refreshed, modern site could look like for your own business.*
+> *Westmont Nails is a fictional studio — inspired by the television show* **Your Friends & Neighbors**. *The site is a portfolio/demo piece — feel free to use it as a reference for what a refreshed, modern site could look like for your own business.*
 
 ---
 

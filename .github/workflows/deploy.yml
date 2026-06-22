@@ -1,0 +1,61 @@
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Render PHP pages to static HTML
+        run: |
+          mkdir -p _site
+          # Render each page through PHP (resolves all includes + the footer year)
+          for page in index about gallery contact; do
+            php "$page.php" > "_site/$page.html"
+          done
+          # Rewrite internal links so they work as static files (.php -> .html)
+          sed -i -e 's/\.php"/.html"/g' -e "s/\.php'/.html'/g" -e 's/\.php#/.html#/g' _site/*.html
+
+          # Copy assets the live site actually uses
+          cp -r images _site/images
+          # Drop the heavy original source images — the live site only needs the optimized versions
+          rm -rf _site/images/photo
+
+          # Make sure GitHub Pages serves files as-is (no Jekyll processing)
+          touch _site/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

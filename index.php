@@ -89,9 +89,31 @@
                 <p class="lead">Ten quiet seconds of colour, gloss, and gold &mdash; the feeling you can expect from the chair.</p>
             </div>
             <div class="video-frame">
-                <video src="images/WESTMOND_NAILS_promo.mp4" autoplay muted loop playsinline controls
+                <video id="promoVideo" src="images/WESTMOND_NAILS_promo.mp4" autoplay muted loop playsinline controls
                        preload="metadata" aria-label="Westmont Nails promotional film"></video>
+                <button type="button" class="video-unmute" id="promoUnmute" aria-label="Turn sound on">
+                    <span aria-hidden="true">🔊</span> Tap for sound
+                </button>
             </div>
+            <script>
+            (function () {
+                var v = document.getElementById('promoVideo');
+                var btn = document.getElementById('promoUnmute');
+                if (!v || !btn) return;
+                function soundOn() {
+                    v.muted = false;
+                    v.volume = 1;
+                    if (v.paused) { v.play(); }
+                    btn.style.display = 'none';
+                }
+                btn.addEventListener('click', soundOn);
+                v.addEventListener('click', soundOn);
+                // Hide the hint if the user unmutes via the native controls
+                v.addEventListener('volumechange', function () {
+                    if (!v.muted) { btn.style.display = 'none'; }
+                });
+            })();
+            </script>
         </div>
     </section>
 

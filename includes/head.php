@@ -181,7 +181,14 @@
       .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;max-width:1100px;margin:0 auto}
       .video-frame{position:relative;max-width:960px;margin-inline:auto;border-radius:22px;overflow:hidden;
         box-shadow:var(--shadow);border:1px solid var(--line);aspect-ratio:16/9;background:#1a0d13}
-      .video-frame video{width:100%;height:100%;display:block;object-fit:cover}
+      .video-frame video{width:100%;height:100%;display:block;object-fit:cover;cursor:pointer}
+      .video-unmute{position:absolute;left:14px;bottom:14px;z-index:3;cursor:pointer;
+        display:inline-flex;align-items:center;gap:.45rem;
+        font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;
+        color:var(--wine);background:rgba(255,255,255,.82);backdrop-filter:blur(4px);
+        border:1px solid var(--line);padding:.5rem .9rem;border-radius:999px;
+        box-shadow:0 8px 20px -12px rgba(110,43,67,.5);transition:transform .2s ease,background .2s ease}
+      .video-unmute:hover{transform:translateY(-1px);background:#fff}
       @media (max-width:860px){.video-grid{grid-template-columns:1fr}}
 
       /* ---- "not sure what to book" band ---- */

@@ -118,8 +118,8 @@
                 <span class="mi-price">from $120</span>
             </div>
 
-            <!-- ============ LASHES, BROWS & EXTRAS ============ -->
-            <div class="svc-cat"><h3>Lashes, Brows &amp; Extras</h3><span class="rule"></span></div>
+            <!-- ============ LASHES, BROWS & FACIALS ============ -->
+            <div class="svc-cat"><h3>Lashes, Brows &amp; Facials</h3><span class="rule"></span></div>
 
             <div class="menu-item">
                 <div class="mi-text">
@@ -133,6 +133,22 @@
                 <div class="mi-text">
                     <h4>Lash Extensions <span class="mi-dur">90 min</span></h4>
                     <p>Individual lashes applied for natural length or fuller volume. Lasts several weeks with care.</p>
+                </div>
+                <span class="mi-price">from $90</span>
+            </div>
+
+            <div class="menu-item">
+                <div class="mi-text">
+                    <h4>Express Facial <span class="mi-dur">30 min</span></h4>
+                    <p>A quick cleanse, gentle exfoliation, and a hydrating mask for an instant, fresh glow.</p>
+                </div>
+                <span class="mi-price">from $55</span>
+            </div>
+
+            <div class="menu-item">
+                <div class="mi-text">
+                    <h4>Signature Facial <span class="mi-dur">60 min</span></h4>
+                    <p>A deep cleanse, exfoliation, relaxing facial massage, and a mask tailored to your skin.</p>
                 </div>
                 <span class="mi-price">from $90</span>
             </div>

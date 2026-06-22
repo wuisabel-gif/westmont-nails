@@ -40,9 +40,11 @@
                             <option>Evening &amp; Event Makeup</option>
                             <option>Bridal Makeup</option>
                         </optgroup>
-                        <optgroup label="Lashes, Brows &amp; Extras">
+                        <optgroup label="Lashes, Brows &amp; Facials">
                             <option>Lash &amp; Brow</option>
                             <option>Lash Extensions</option>
+                            <option>Express Facial</option>
+                            <option>Signature Facial</option>
                             <option>Bridal &amp; Group Bookings</option>
                             <option>Not sure yet &mdash; please advise</option>
                         </optgroup>

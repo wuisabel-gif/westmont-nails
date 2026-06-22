@@ -23,47 +23,38 @@
 
                 <figure class="tile">
                     <img src="images/gilded-french.jpg" alt="Gilded French manicure in nude with gold tips">
-                    <figcaption><b>Gilded French</b><span>Luxe Gel</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/rosewood-chrome.jpg" alt="Rosewood chrome nail art">
-                    <figcaption><b>Rosewood Chrome</b><span>Nail Art</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/almond-nude.jpg" alt="Almond nude signature manicure">
-                    <figcaption><b>Almond Nude</b><span>Signature</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/cherry-gloss.jpg" alt="Cherry gloss wine gel manicure">
-                    <figcaption><b>Cherry Gloss</b><span>Luxe Gel</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/copper-tips.jpg" alt="Copper gradient tip extensions">
-                    <figcaption><b>Copper Tips</b><span>Extensions</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/pearl-ombre.jpg" alt="Pearl ombre nail art">
-                    <figcaption><b>Pearl Ombr&eacute;</b><span>Nail Art</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/midnight-plum.jpg" alt="Midnight plum gel manicure with gold accent">
-                    <figcaption><b>Midnight Plum</b><span>Luxe Gel</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/bridal-lace.jpg" alt="Bridal white nails with lace detail">
-                    <figcaption><b>Bridal Lace</b><span>Events</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/soft-lily.jpg" alt="Soft lily lilac pink almond nails">
-                    <figcaption><b>Soft Lily</b><span>Signature</span></figcaption>
                 </figure>
 
             </div>
@@ -74,42 +65,34 @@
 
                 <figure class="tile">
                     <img src="images/bridal-glam.jpg?v=2" alt="Soft bridal makeup with glossy nude lip">
-                    <figcaption><b>Bridal Glam</b><span>Bridal Makeup</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/soft-glam.jpg" alt="Evening soft-glam makeup with bronze tones and lashes">
-                    <figcaption><b>Soft Glam</b><span>Evening Makeup</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/fresh-face.jpg?v=2" alt="Natural fresh-faced everyday makeup look">
-                    <figcaption><b>Fresh Face</b><span>Everyday Makeup</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/event.jpg" alt="Glamorous event makeup with smoky eye and glowing skin">
-                    <figcaption><b>Event Glam</b><span>Event Makeup</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/evening-glam.jpg" alt="Evening glam makeup with soft smoky eye and curls">
-                    <figcaption><b>Evening Glam</b><span>Evening Makeup</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/graduation.jpg" alt="Soft natural graduation-day makeup">
-                    <figcaption><b>Graduation</b><span>Occasion Makeup</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/engagement.jpg" alt="Soft romantic engagement-day makeup">
-                    <figcaption><b>Engagement Day</b><span>Occasion Makeup</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/mother-of-bride.jpg" alt="Elegant mother-of-the-bride makeup">
-                    <figcaption><b>Mother of the Bride</b><span>Occasion Makeup</span></figcaption>
                 </figure>
 
             </div>
@@ -120,12 +103,10 @@
 
                 <figure class="tile">
                     <img src="images/volume-lashes.jpg?v=3" alt="Before and after lash extensions">
-                    <figcaption><b>Lash Extensions</b><span>Before &amp; After</span></figcaption>
                 </figure>
 
                 <figure class="tile">
                     <img src="images/tinted-brows.jpg" alt="Groomed, tinted eyebrows with soft glowing makeup">
-                    <figcaption><b>Tinted Brows</b><span>Brow Shaping &amp; Tint</span></figcaption>
                 </figure>
 
             </div>
